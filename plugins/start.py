@@ -89,7 +89,7 @@ async def start_command(client: Client, message: Message):
                 pass
 
 
-        k = await client.send_message(chat_id = message.from_user.id, text=f"<b>❗️ <u>IMPORTANT</u> ❗️</b>\n\nThis Video / File Will Be Deleted In {file_auto_delete} (Due To Copyright Issues).\n\n📌 Please Forward This Video / File To Somewhere Else And Start Downloading There.")
+        k = await client.send_message(chat_id = message.from_user.id, text=f"<b>❗️ <u>IMPORTANTE</u> ❗️</b> \n\nEste video / archivo se eliminará en {file_auto_delete} (debido a problemas de derechos de autor).\n\n📌 Por favor, reenvíe este video / archivo a otro lugar y comience a descargarlo allí.")
 
         # Schedule the file deletion
         asyncio.create_task(delete_files(madflix_msgs, client, k))
@@ -97,7 +97,7 @@ async def start_command(client: Client, message: Message):
         # for madflix_msg in madflix_msgs: 
             # try:
                 # await madflix_msg.delete()
-                # await k.edit_text("Your Video / File Is Successfully Deleted ✅") 
+                # await k.edit_text("Su video / archivo se ha eliminado ✅ con éxito") 
             # except:    
                 # pass 
 
@@ -232,8 +232,8 @@ async def delete_files(messages, client, k):
             await client.delete_messages(chat_id=msg.chat.id, message_ids=[msg.id])
         except Exception as e:
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
-    # await client.send_message(messages[0].chat.id, "Your Video / File Is Successfully Deleted ✅")
-    await k.edit_text("Your Video / File Is Successfully Deleted ✅")
+    # await client.send_message(messages[0].chat.id, "Su video / archivo se ha eliminado ✅ con éxito")
+    await k.edit_text("Su video / archivo se ha eliminado ✅ con éxito")
 
 
 
